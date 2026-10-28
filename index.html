@@ -161,7 +161,7 @@ em{font-style:italic;color:var(--rust)}
 .contact dl{margin-top:34px}
 .contact dt{font-size:14px;color:var(--bark);margin-top:18px}
 .contact dd{font-family:var(--serif);font-size:28px;font-weight:500}
-form{background:var(--night);color:var(--white);border-radius:28px;padding:clamp(24px,3.4vw,42px)}
+form,.tg-card{background:var(--night);color:var(--white);border-radius:28px;padding:clamp(24px,3.4vw,42px)}
 fieldset{border:0;display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px}
 legend{font-size:15px;color:var(--sand);margin-bottom:10px}
 fieldset label{flex:1 1 120px}
@@ -174,7 +174,9 @@ fieldset input:focus-visible+span{outline:3px solid var(--camel);outline-offset:
 .field input,.field textarea{width:100%;font:inherit;padding:14px 16px;border:1.5px solid rgba(197,175,153,.5);border-radius:14px;background:transparent;color:var(--white)}
 .field input:focus,.field textarea:focus{border-color:var(--camel);outline:0}
 .field textarea{min-height:90px;resize:vertical}
-form .btn{width:100%;text-align:center}
+form .btn,.tg-card .btn{width:100%;text-align:center}
+.tg-card h3{font-family:var(--serif);font-size:30px;font-weight:500}
+.tg-card p{margin:14px 0 26px;color:var(--sand-soft)}
 .consent{display:flex;gap:12px;align-items:flex-start;margin:4px 0 20px;font-size:13px;line-height:1.5;color:var(--sand);cursor:pointer}
 .consent input{flex:none;width:20px;height:20px;margin-top:1px;accent-color:var(--flame);cursor:pointer}
 .consent a,.banner a{color:inherit;text-decoration:underline;text-underline-offset:3px}
@@ -305,27 +307,18 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
     <div class="grid">
       <div class="info">
         <h2>Расскажите, что <em>нужно</em></h2>
-        <p>Оставьте телефон, и я перезвоню в течение рабочего дня. Можно сразу написать пару слов о квартире или пожеланиях.</p>
+        <p>Напишите мне в Telegram, и я отвечу в течение рабочего дня.</p>
         <dl>
           <dt>Телефон</dt><dd><a href="tel:+79220464064" style="text-decoration:none">+7 (922) 046-40-64</a></dd>
           <dt>Почта</dt><dd>ess241277@mail.ru</dd>
           <dt>Отвечаю</dt><dd>Пн–Пт, 10:00–18:00</dd>
         </dl>
       </div>
-      <form id="form" novalidate>
-        <fieldset>
-          <legend>Что вас интересует</legend>
-          <label><input type="radio" name="goal" value="sell" checked><span>Продать</span></label>
-          <label><input type="radio" name="goal" value="buy"><span>Купить</span></label>
-          <label><input type="radio" name="goal" value="both"><span>И то и другое</span></label>
-        </fieldset>
-        <div class="field"><label for="name">Имя</label><input id="name" name="name" autocomplete="name" required></div>
-        <div class="field"><label for="phone">Телефон</label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+7" required></div>
-        <div class="field"><label for="msg">Комментарий (необязательно)</label><textarea id="msg" name="msg"></textarea></div>
-        <label class="consent" id="consent"><input type="checkbox" name="agree" id="agree" required><span>Я даю согласие на обработку моих персональных данных (имя, телефон) в целях обратной связи в соответствии с Федеральным законом № 152-ФЗ и принимаю <a href="#policy" data-policy>политику обработки персональных данных</a>.</span></label>
-        <button class="btn btn-main" type="submit">Заказать звонок</button>
-        <div class="ok" id="ok" role="status">Спасибо! Открываю Telegram: напишите мне там, и я отвечу в рабочее время.</div>
-      </form>
+      <div class="tg-card">
+        <h3>Напишите мне в Telegram</h3>
+        <p>Расскажите пару слов о квартире или пожеланиях, и я отвечу в рабочее время.</p>
+        <a class="btn btn-main" href="https://t.me/ElenaSoz77" target="_blank" rel="noopener">Заказать звонок</a>
+      </div>
     </div>
   </section>
 </main>
@@ -377,23 +370,6 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
   });
   document.querySelectorAll('[data-policy]').forEach(function(a){
     a.addEventListener('click',function(e){e.preventDefault();pol.showModal()});
-  });
-  document.getElementById('agree').addEventListener('change',function(){document.getElementById('consent').classList.remove('err')});
-
-  var form=document.getElementById('form'), ok=document.getElementById('ok');
-  form.addEventListener('submit',function(e){
-    e.preventDefault();
-    var name=form.name.value.trim(), phone=form.phone.value.replace(/\D/g,'');
-    form.name.style.borderColor=name?'':'#E72402';
-    form.phone.style.borderColor=phone.length>=10?'':'#E72402';
-    var agree=document.getElementById('agree');
-    document.getElementById('consent').classList.toggle('err',!agree.checked);
-    if(!name){form.name.focus();return;}
-    if(phone.length<10){form.phone.focus();return;}
-    if(!agree.checked){agree.focus();return;}
-    window.open('https://t.me/ElenaSoz77','_blank','noopener');
-    ok.classList.add('show');
-    form.reset();
   });
 </script>
 <!-- Стрелка «наверх» -->
