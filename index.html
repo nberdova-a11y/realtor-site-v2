@@ -324,7 +324,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
         <div class="field"><label for="msg">Комментарий (необязательно)</label><textarea id="msg" name="msg"></textarea></div>
         <label class="consent" id="consent"><input type="checkbox" name="agree" id="agree" required><span>Я даю согласие на обработку моих персональных данных (имя, телефон) в целях обратной связи в соответствии с Федеральным законом № 152-ФЗ и принимаю <a href="#policy" data-policy>политику обработки персональных данных</a>.</span></label>
         <button class="btn btn-main" type="submit">Заказать звонок</button>
-        <div class="ok" id="ok" role="status">Спасибо! Я перезвоню вам в течение рабочего дня.</div>
+        <div class="ok" id="ok" role="status">Спасибо! Открываю Telegram: напишите мне там, и я отвечу в рабочее время.</div>
       </form>
     </div>
   </section>
@@ -391,7 +391,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
     if(!name){form.name.focus();return;}
     if(phone.length<10){form.phone.focus();return;}
     if(!agree.checked){agree.focus();return;}
-    // Здесь подключите отправку заявки (почта, CRM или Telegram-бот)
+    window.open('https://t.me/ElenaSoz77','_blank','noopener');
     ok.classList.add('show');
     form.reset();
   });
