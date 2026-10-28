@@ -325,20 +325,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
   <div class="wrap"><span>© Елена Созонова, риелтор</span><span>Продажа и покупка недвижимости</span></div>
 </footer>
 
-<div class="banner" id="banner" role="region" aria-label="Согласие на обработку данных" hidden>
-  <p>Сайт использует файлы cookie и обрабатывает персональные данные в соответствии с 152-ФЗ. Продолжая пользоваться сайтом, вы соглашаетесь с <a href="#policy" data-policy>политикой обработки персональных данных</a>.</p>
-  <button class="btn btn-line" type="button" id="bannerOk">Принимаю</button>
-</div>
 
-<dialog class="policy" id="policy">
-  <h3>Политика обработки персональных данных</h3>
-  <p><b>Оператор:</b> Елена Созонова, риелтор (демо-текст: замените на реквизиты — ФИО/ИП, ИНН, адрес, e-mail).</p>
-  <p><b>Какие данные:</b> имя, номер телефона и текст комментария, которые вы указали в форме.</p>
-  <p><b>Цель:</b> связаться с вами по заявке и проконсультировать по продаже или покупке недвижимости.</p>
-  <p><b>Срок и передача:</b> данные хранятся до достижения цели или отзыва согласия и не передаются третьим лицам, кроме случаев, предусмотренных законом.</p>
-  <p><b>Ваши права:</b> вы можете запросить уточнение, удаление данных или отозвать согласие, написав на ess241277@mail.ru.</p>
-  <form method="dialog"><button class="btn btn-main" type="submit">Понятно</button></form>
-</dialog>
 
 <script>
   requestAnimationFrame(function(){document.getElementById('plan').classList.add('on')});
@@ -360,15 +347,6 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
     });
   });
 
-  var banner=document.getElementById('banner'), pol=document.getElementById('policy');
-  try{if(!localStorage.getItem('pd-consent'))banner.hidden=false}catch(e){banner.hidden=false}
-  document.getElementById('bannerOk').addEventListener('click',function(){
-    banner.hidden=true;
-    try{localStorage.setItem('pd-consent','1')}catch(e){}
-  });
-  document.querySelectorAll('[data-policy]').forEach(function(a){
-    a.addEventListener('click',function(e){e.preventDefault();pol.showModal()});
-  });
 </script>
 <!-- Стрелка «наверх» -->
 <style>
