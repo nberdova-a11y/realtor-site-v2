@@ -156,11 +156,11 @@ em{font-style:italic;color:var(--rust)}
 
 /* contact */
 .contact{padding-block:clamp(64px,9vw,130px)}
-.contact .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,6vw,90px);align-items:start}
+.contact .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,6vw,90px);align-items:stretch}
 .contact .info p{margin-top:22px;color:var(--bark)}
-.contact dl{margin-top:34px}
-.contact dt{font-size:14px;color:var(--bark);margin-top:18px}
-.contact dd{font-family:var(--serif);font-size:28px;font-weight:500}
+.contact dl{margin-top:22px}
+.contact dt{font-size:13px;color:var(--bark);margin-top:12px}
+.contact dd{font-family:var(--serif);font-size:20px;font-weight:500}
 form,.tg-card{background:var(--night);color:var(--white);border-radius:28px;padding:clamp(24px,3.4vw,42px)}
 fieldset{border:0;display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px}
 legend{font-size:15px;color:var(--sand);margin-bottom:10px}
@@ -175,6 +175,7 @@ fieldset input:focus-visible+span{outline:3px solid var(--camel);outline-offset:
 .field input:focus,.field textarea:focus{border-color:var(--camel);outline:0}
 .field textarea{min-height:90px;resize:vertical}
 form .btn,.tg-card .btn{width:100%;text-align:center}
+.tg-card{display:flex;flex-direction:column;justify-content:center}
 .tg-card h3{font-family:var(--serif);font-size:30px;font-weight:500}
 .tg-card p{margin:14px 0 26px;color:var(--sand-soft)}
 .consent{display:flex;gap:12px;align-items:flex-start;margin:4px 0 20px;font-size:13px;line-height:1.5;color:var(--sand);cursor:pointer}
